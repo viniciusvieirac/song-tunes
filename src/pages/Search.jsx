@@ -28,6 +28,7 @@ class Search extends Component {
       error: '',
     });
     const response = await searchAlbumsAPI(artist);
+    console.log(response);
     if (response.length === 0) {
       this.setState({
         error: 'Nenhum álbum foi encontrado',
@@ -89,7 +90,7 @@ class Search extends Component {
 
           </button>
           {loading && <Loading />}
-          {error && <p>{error}</p>}
+          {Boolean(error) && <p>{error}</p>}
           {albuns.length > 0 && (
             <div>
               <p>
@@ -98,8 +99,8 @@ class Search extends Component {
                 {artistName}
               </p>
               <ul>
-                {albuns.map((album) => (
-                  <div key={ album.collectionName }>
+                {albuns.map((album, index) => (
+                  <div key={ index }>
 
                     <li
                       className="album"

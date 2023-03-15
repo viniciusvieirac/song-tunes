@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import './Style/Login.css';
 
 class Login extends Component {
   constructor() {
@@ -55,7 +56,7 @@ class Login extends Component {
     const { name, disabledButton, loading } = this.state;
     return (
       <div data-testid="page-login">
-        <form onSubmit={ this.handleSubmit }>
+        <form className="login" onSubmit={ this.handleSubmit }>
           <input
             type="text"
             value={ name }
