@@ -28,7 +28,6 @@ class Search extends Component {
       error: '',
     });
     const response = await searchAlbumsAPI(artist);
-    console.log(response);
     if (response.length === 0) {
       this.setState({
         error: 'Nenhum álbum foi encontrado',

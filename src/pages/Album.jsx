@@ -30,7 +30,6 @@ class Album extends Component {
     const { id } = params;
     const response = await getMusics(id);
     const [album, ...songs] = response;
-    console.log(album);
     this.setState({
       songs,
       album,
@@ -58,6 +57,7 @@ class Album extends Component {
               key={ song.trackName }
               trackName={ song.trackName }
               previewUrl={ song.previewUrl }
+              trackId={ song.trackId }
             />
           ))}
         </div>
