@@ -57,22 +57,31 @@ class Login extends Component {
     return (
       <div data-testid="page-login">
         <form className="login" onSubmit={ this.handleSubmit }>
-          <input
-            type="text"
-            value={ name }
-            onChange={ this.handleChange }
-            data-testid="login-name-input"
-          />
-          <button
-            type="submit"
-            disabled={ disabledButton }
-            data-testid="login-submit-button"
-          >
-            Entrar
+          {loading ? (<Loading />) : (
+            <div>
+              <label>
+                Digite seu nome:
+                <input
+                  type="text"
+                  value={ name }
+                  onChange={ this.handleChange }
+                  placeholder="nome"
+                  data-testid="login-name-input"
+                />
+              </label>
+              <button
+                type="submit"
+                disabled={ disabledButton }
+                data-testid="login-submit-button"
+              >
+                Entrar
 
-          </button>
+              </button>
 
-          {loading && <Loading />}
+            </div>
+
+          )}
+
         </form>
       </div>
     );
