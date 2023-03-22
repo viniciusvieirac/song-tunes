@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   constructor() {
@@ -28,14 +28,22 @@ class MusicCard extends Component {
   };
 
   handleClick = async () => {
+    const { favs } = this.state;
     const { songs } = this.props;
     this.setState({
       loading: true,
     });
-    await addSong(songs);
-    this.setState({
-      loading: false,
-      favs: true });
+    if (favs === false) {
+      await addSong(songs);
+      this.setState({
+        loading: false,
+        favs: true });
+    } if (favs === true) {
+      await removeSong(songs);
+      this.setState({
+        loading: false,
+        favs: false });
+    }
   };
 
   render() {
