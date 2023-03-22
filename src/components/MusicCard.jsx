@@ -42,8 +42,10 @@ class MusicCard extends Component {
       await removeSong(songs);
       this.setState({
         loading: false,
-        favs: false });
+        favs: false,
+      });
     }
+    window.location.reload();
   };
 
   render() {

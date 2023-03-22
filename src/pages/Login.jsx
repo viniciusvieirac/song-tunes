@@ -77,9 +77,7 @@ class Login extends Component {
                 Entrar
 
               </button>
-
             </div>
-
           )}
 
         </form>

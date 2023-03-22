@@ -40,24 +40,21 @@ class Profile extends Component {
         <Header />
         <div>
           <p>
-
             {name}
           </p>
         </div>
         <div>
           <p>
-
             {email}
           </p>
         </div>
         <div>
           <p>
-
             {description}
           </p>
         </div>
         <div>
-          <img src={ image } alt={ name } data-testid="profile-image" />
+          <img src={ image } alt="seu nome" data-testid="profile-image" />
         </div>
         <Link to="/profile/edit">Editar perfil</Link>
       </div>
