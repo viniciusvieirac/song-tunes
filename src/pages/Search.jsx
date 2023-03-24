@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import style from './Style/Search.module.css';
 
 class Search extends Component {
   constructor() {
@@ -68,60 +69,62 @@ class Search extends Component {
     const { artist, disabledButton, loading, albuns, artistName, error } = this.state;
     return (
       <div data-testid="page-search">
-        <Header />
-        <form onSubmit={ this.handleSubmit }>
-          <label>
-            Buscar albuns de:
-            <input
-              value={ artist }
-              type="text"
-              onChange={ this.handleChange }
-              data-testid="search-artist-input"
-              placeholder="Digite o nome do artista"
-            />
-          </label>
-          <button
-            type="submit"
-            disabled={ disabledButton }
-            data-testid="search-artist-button"
-          >
-            Pesquisar
+        <div>
+          <Header />
+          <form onSubmit={ this.handleSubmit } className={ style.searchContainer }>
+            <label className={ style.labelInput }>
+              <input
+                value={ artist }
+                type="text"
+                onChange={ this.handleChange }
+                data-testid="search-artist-input"
+                placeholder="Digite o nome do artista"
+              />
+            </label>
+            <button
+              type="submit"
+              disabled={ disabledButton }
+              data-testid="search-artist-button"
+            >
+              Pesquisar
 
-          </button>
-          {loading && <Loading />}
-          {Boolean(error) && <p>{error}</p>}
-          {albuns.length > 0 && (
-            <div>
-              <p>
-                Resultado de álbuns de:
-                {' '}
-                {artistName}
-              </p>
-              <ul>
-                {albuns.map((album, index) => (
-                  <div key={ index }>
+            </button>
+            {loading && <Loading />}
+            {Boolean(error) && <p>{error}</p>}
+            {albuns.length > 0 && (
+              <div>
+                <p>
+                  Resultado de álbuns de:
+                  {' '}
+                  {artistName}
+                </p>
+                <ul>
+                  {albuns.map((album, index) => (
+                    <div key={ index }>
 
-                    <li
-                      className="album"
-                      key={ album.collectionName }
-                    >
-                      <Link
-                        to={ `/album/${album.collectionId}` }
-                        data-testid={ `link-to-album-${album.collectionId}` }
+                      <li
+                        className="album"
+                        key={ album.collectionName }
                       >
-                        <img src={ album.artworkUrl100 } alt={ album.collectionName } />
-                        <p>
-                          {' '}
-                          {album.collectionName}
-                        </p>
-                      </Link>
-                    </li>
-                  </div>
-                ))}
-              </ul>
-            </div>
-          )}
-        </form>
+                        <Link
+                          to={ `/album/${album.collectionId}` }
+                          data-testid={ `link-to-album-${album.collectionId}` }
+                        >
+                          <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+                          <p>
+                            {' '}
+                            {album.collectionName}
+                          </p>
+                        </Link>
+                      </li>
+                    </div>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </form>
+
+        </div>
       </div>
     );
   }

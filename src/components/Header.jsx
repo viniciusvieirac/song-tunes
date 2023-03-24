@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+import styles from './style/header.module.css';
+import logo from '../images/icons8-music-192.svg';
 
 class Header extends Component {
   constructor() {
@@ -31,21 +33,51 @@ class Header extends Component {
   render() {
     const { name, loading } = this.state;
     return (
-      <header data-testid="header-component">
-        <nav>
+      <header data-testid="header-component" className={ styles.headerComp }>
+        <div className={ styles.divLogo }>
+          <img src={ logo } alt="logo" className={ styles.logo } />
+        </div>
+        <nav className={ styles.navBar }>
           <ul>
             <li>
-              <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
+              <Link
+                className={ styles.links }
+                to="/search"
+                data-testid="link-to-search"
+              >
+                Pesquisar
+
+              </Link>
             </li>
             <li>
-              <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
+              <Link
+                className={ styles.links }
+                to="/favorites"
+                data-testid="link-to-favorites"
+              >
+                Favoritos
+
+              </Link>
             </li>
             <li>
-              <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+              <Link
+                className={ styles.links }
+                to="/profile"
+                data-testid="link-to-profile"
+              >
+                Perfil
+
+              </Link>
             </li>
           </ul>
         </nav>
-        {loading ? (<Loading />) : (<span data-testid="header-user-name">{name}</span>)}
+        {loading ? (<Loading />) : (
+          <div className={ styles.userContainer }>
+            <Link to="/profile" className={ styles.links }>
+              <span data-testid="header-user-name" className={ styles.user }>{name}</span>
+            </Link>
+          </div>
+        )}
       </header>
     );
   }

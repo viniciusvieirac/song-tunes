@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import logo from '../images/icons8-music-192.svg';
 import './Style/Login.css';
 
 class Login extends Component {
@@ -55,32 +56,39 @@ class Login extends Component {
   render() {
     const { name, disabledButton, loading } = this.state;
     return (
-      <div data-testid="page-login">
-        <form className="login" onSubmit={ this.handleSubmit }>
-          {loading ? (<Loading />) : (
-            <div>
-              <label>
-                Digite seu nome:
-                <input
-                  type="text"
-                  value={ name }
-                  onChange={ this.handleChange }
-                  placeholder="nome"
-                  data-testid="login-name-input"
-                />
-              </label>
-              <button
-                type="submit"
-                disabled={ disabledButton }
-                data-testid="login-submit-button"
-              >
-                Entrar
+      <div data-testid="page-login" className="area-login">
+        <div className="login">
+          <div>
+            <img src={ logo } alt="imagem musicas" className="logo-image" />
+          </div>
+          <form className="form" onSubmit={ this.handleSubmit }>
+            <h1>Wellcome!</h1>
+            {loading ? (<Loading />) : (
+              <div>
+                <label>
+                  <input
+                    type="text"
+                    value={ name }
+                    onChange={ this.handleChange }
+                    placeholder="insira seu nome"
+                    data-testid="login-name-input"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  disabled={ disabledButton }
+                  data-testid="login-submit-button"
+                  className="submit-login"
+                >
+                  Login
 
-              </button>
-            </div>
-          )}
+                </button>
+              </div>
+            )}
 
-        </form>
+          </form>
+
+        </div>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import './Style/Album.css';
 
 class Album extends Component {
   constructor() {
@@ -43,7 +44,7 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <div>
+        <div className="album-container">
           <img
             src={ album.artworkUrl100 }
             alt={ album.collectionName }
