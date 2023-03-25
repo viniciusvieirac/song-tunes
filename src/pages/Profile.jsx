@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import styles from './Style/Profile.module.css';
 import { getUser } from '../services/userAPI';
 
 class Profile extends Component {
@@ -35,28 +36,30 @@ class Profile extends Component {
   render() {
     const { loading, name, email, description, image } = this.state;
     return (
-      <div data-testid="page-profile">
-        {loading && <Loading />}
+      <div data-testid="page-profile" className={ styles.profilePage }>
         <Header />
-        <div>
-          <p>
-            {name}
-          </p>
-        </div>
-        <div>
-          <p>
-            {email}
-          </p>
-        </div>
-        <div>
-          <p>
-            {description}
-          </p>
-        </div>
-        <div>
+
+        <div className={ styles.profileContainer }>
+          {loading && <Loading />}
           <img src={ image } alt="seu nome" data-testid="profile-image" />
+          <div className={ styles.infos }>
+            <p>
+              {name}
+            </p>
+
+            <p>
+              {email}
+            </p>
+
+            <p>
+              {description}
+            </p>
+
+          </div>
+
+          <Link className={ styles.button } to="/profile/edit">Editar perfil</Link>
         </div>
-        <Link to="/profile/edit">Editar perfil</Link>
+
       </div>
     );
   }

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -68,10 +69,11 @@ class Search extends Component {
   render() {
     const { artist, disabledButton, loading, albuns, artistName, error } = this.state;
     return (
-      <div data-testid="page-search">
-        <div>
-          <Header />
-          <form onSubmit={ this.handleSubmit } className={ style.searchContainer }>
+      <div data-testid="page-search" className={ style.test }>
+        <Header />
+        <div className={ style.forms }>
+
+          <form onSubmit={ this.handleSubmit }>
             <label className={ style.labelInput }>
               <input
                 value={ artist }
@@ -89,28 +91,39 @@ class Search extends Component {
               Pesquisar
 
             </button>
-            {loading && <Loading />}
-            {Boolean(error) && <p>{error}</p>}
-            {albuns.length > 0 && (
+          </form>
+        </div>
+        <div className={ style.searchContainer }>
+          {loading && <Loading />}
+          {Boolean(error) && <p>{error}</p>}
+          {albuns.length > 0 && (
+            <div className={ style.albunsContainer }>
               <div>
-                <p>
+                <h2>
                   Resultado de álbuns de:
                   {' '}
                   {artistName}
-                </p>
+                </h2>
+
+              </div>
+              <div className={ style.albuns }>
                 <ul>
+
                   {albuns.map((album, index) => (
-                    <div key={ index }>
+                    <div key={ index } className={ style.cards }>
 
                       <li
-                        className="album"
                         key={ album.collectionName }
                       >
                         <Link
                           to={ `/album/${album.collectionId}` }
                           data-testid={ `link-to-album-${album.collectionId}` }
+                          className={ style.link }
                         >
-                          <img src={ album.artworkUrl100 } alt={ album.collectionName } />
+                          <img
+                            src={ album.artworkUrl100 }
+                            alt={ album.collectionName }
+                          />
                           <p>
                             {' '}
                             {album.collectionName}
@@ -119,10 +132,11 @@ class Search extends Component {
                       </li>
                     </div>
                   ))}
+
                 </ul>
               </div>
-            )}
-          </form>
+            </div>
+          )}
 
         </div>
       </div>

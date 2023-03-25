@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
+import style from './style/MusicCard.module.css';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
@@ -63,10 +64,12 @@ class MusicCard extends Component {
           .
         </audio>
         {loading ? (<Loading />) : (
-          <label>
-            Favorita
+          <label htmlFor="coracao">
+            Favoritar
             <input
               type="checkbox"
+              id="coracao"
+              className={ style.inputCheck }
               data-testid={ `checkbox-music-${trackId}` }
               onClick={ this.handleClick }
               checked={ favs }

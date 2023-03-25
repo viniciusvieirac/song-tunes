@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap') ;
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -7,17 +8,17 @@
 body {
   background-color: #1b1f27;
   color: #cbd0f7;
-  font-family: Arial , Helvetica , sans-serif;
+  font-family: "Alkatra", cursive;
 }
 
-.area-login {
+.areaLogin {
   align-items: center;
   display: flex;
   height: 100vh;
   justify-content: center;
 }
 
-.logo-image {
+.logoImage {
   height: auto;
   width: 65px;
 }
@@ -59,7 +60,7 @@ input::placeholder {
   font-size: 14px;
 }
 
-.submit-login {
+.submitLogin {
   background-color: #5568fe;
   border: none;
   border-radius: 8px;

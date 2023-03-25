@@ -1,8 +1,10 @@
 .headerComp {
   border-right: solid 1px #cbd0f7;
-  height: 100vh;
+  height: 100%;
+  left: 0;
+  min-width: 20%;
   padding: 10px;
-  width: 17%;
+  position: fixed;
 }
 
 .linksnav {
@@ -15,25 +17,34 @@
 }
 
 .links {
+  align-items: center;
   border-radius: 5px;
   color: #cbd0f7;
-  display: block;
+  display: flex;
   height: 40px;
+  justify-content: space-evenly;
   line-height: 40px;
   margin: 20px;
   text-align: center;
   text-decoration: none;
   transition: all 0.3s ease-out;
-  width: 160px;
+  width: auto;
 }
 
 
 .navBar ul {
-
   margin-top: 50px;
 }
 
+.linksContainer {
+  margin-top: 20px;
+}
+
+
 .userContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
   margin-top: 50px;
   text-align: center;
 }
@@ -61,5 +72,6 @@
 
 .logo {
   padding: 10px;
-  width: 100px;
+  width: 50px;
 }
+

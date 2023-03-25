@@ -1,0 +1,22 @@
+.albumPage {
+  display: flex;
+}
+
+.albumContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 250px;
+  padding: 50px;
+  width: 100%;
+}
+
+.infos {
+  left: 350px;
+  position: fixed;
+  top: 100px;
+}
+
+.songs {
+  margin-left: 300px;
+}

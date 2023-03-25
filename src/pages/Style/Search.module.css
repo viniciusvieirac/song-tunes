@@ -5,6 +5,61 @@
   text-align: center;
 }
 
-.labelInput input {
-  text-align: center;
+.test {
+  display: flex;
+  flex-direction: column;
 }
+
+.forms {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.albunsContainer {
+  margin-left: 50px;
+  max-width: 750px;
+}
+
+.forms input {
+  border-radius: 15px;
+  height: 25px;
+  margin: 10px;
+  padding-left: 50px;
+  width: 300px;
+}
+
+.albuns ul {
+  column-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  list-style: none;
+  margin: 3rem;
+  row-gap: 4rem;
+  width: 100%;
+}
+
+.cards {
+  background-color: #2a2b2e;
+  border-radius: 15px;
+  box-shadow: 6px 6px 8px #0d0e0f;
+  transition: box-shadow 0.3s ease-in-out;
+  width: 150px;
+}
+
+.cards:hover {
+  box-shadow: 6px 6px 8px 8px limegreen;
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+}
+
+.link {
+  color: #cbd0f7;
+  text-decoration: none;
+}
+
+.cards img {
+  margin: 10px;
+}
+

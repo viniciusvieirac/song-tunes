@@ -1,0 +1,43 @@
+.profilePage {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.profileContainer {
+  background-color: #38383d;
+  border-radius: 20px;
+  height: 50%;
+  margin-bottom: 200px;
+  margin-left: 200px;
+  width: 30%;
+}
+
+.profileContainer img {
+  border-radius: 15%;
+  margin-top: 15px;
+}
+
+.infos {
+  margin: 15px;
+}
+
+.button {
+  background-color: #0a0a23;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  min-height: 30px;
+  min-width: 120px;
+  padding: 15px;
+  text-decoration: none;
+  top: 50%;
+}
+
+.button:hover {
+  background-color: #002ead;
+  transition: 0.7s;
+}
+

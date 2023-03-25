@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { AiOutlineSearch, AiOutlineUser, AiTwotoneHeart } from 'react-icons/ai';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
 import styles from './style/header.module.css';
@@ -36,48 +38,37 @@ class Header extends Component {
       <header data-testid="header-component" className={ styles.headerComp }>
         <div className={ styles.divLogo }>
           <img src={ logo } alt="logo" className={ styles.logo } />
+          <h3>Song</h3>
         </div>
         <nav className={ styles.navBar }>
-          <ul>
-            <li>
-              <Link
-                className={ styles.links }
-                to="/search"
-                data-testid="link-to-search"
-              >
-                Pesquisar
 
+          <div className={ styles.linksContainer }>
+            <div>
+              <Link className={ styles.links } to="/search">
+                <AiOutlineSearch />
+                <span>Pesquisar </span>
               </Link>
-            </li>
-            <li>
-              <Link
-                className={ styles.links }
-                to="/favorites"
-                data-testid="link-to-favorites"
-              >
-                Favoritos
+            </div>
+            <div>
+              <Link className={ styles.links } to="/favorites">
+                <AiTwotoneHeart />
+                <span> Favoritos</span>
+              </Link>
+            </div>
+            {loading ? (<Loading />) : (
+              <div>
+                <Link to="/profile" className={ styles.links }>
 
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={ styles.links }
-                to="/profile"
-                data-testid="link-to-profile"
-              >
-                Perfil
+                  <AiOutlineUser />
+                  <span data-testid="header-user-name" className={ styles.user }>
+                    {name}
+                  </span>
+                </Link>
+              </div>
 
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        {loading ? (<Loading />) : (
-          <div className={ styles.userContainer }>
-            <Link to="/profile" className={ styles.links }>
-              <span data-testid="header-user-name" className={ styles.user }>{name}</span>
-            </Link>
+            )}
           </div>
-        )}
+        </nav>
       </header>
     );
   }

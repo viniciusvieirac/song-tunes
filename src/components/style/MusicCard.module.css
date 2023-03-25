@@ -1,0 +1,12 @@
+.inputCheck {
+  background: linear-gradient(to bottom right, red, blue);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  height: 20px;
+  transform: rotate(-45deg);
+  width: 20px;
+}
+
+.inputCheck:checked {
+  background: linear-gradient(to bottom right, red, blue, black);
+}

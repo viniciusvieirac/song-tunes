@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import { DotWave } from '@uiball/loaders';
 
 class Loading extends Component {
   render() {
     return (
-      <h1 className="loading">Carregando...</h1>
+      <DotWave
+        size={ 47 }
+        speed={ 1 }
+        color="#cbd0f7"
+      />
     );
   }
 }

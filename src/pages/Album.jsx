@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import './Style/Album.css';
+import style from './Style/Album.module.css';
 
 class Album extends Component {
   constructor() {
@@ -42,27 +42,33 @@ class Album extends Component {
     const { album, loading, songs } = this.state;
     if (loading === true) return <Loading />;
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-album" className={ style.albumPage }>
         <Header />
-        <div className="album-container">
-          <img
-            src={ album.artworkUrl100 }
-            alt={ album.collectionName }
-          />
-          <h1 data-testid="album-name">{album.collectionName}</h1>
-          <h2 data-testid="artist-name">{album.artistName}</h2>
-        </div>
-        <div>
-          {songs.map((song) => (
-            <MusicCard
-              key={ song.trackName }
-              trackName={ song.trackName }
-              previewUrl={ song.previewUrl }
-              trackId={ song.trackId }
-              songs={ song }
+
+        <div className={ style.albumContainer }>
+
+          <div className={ style.infos }>
+            <img
+              src={ album.artworkUrl100 }
+              alt={ album.collectionName }
             />
-          ))}
+            <h1 data-testid="album-name">{album.collectionName}</h1>
+            <h2 data-testid="artist-name">{album.artistName}</h2>
+          </div>
+          <div className={ style.songs }>
+            {songs.map((song) => (
+              <MusicCard
+                key={ song.trackName }
+                trackName={ song.trackName }
+                previewUrl={ song.previewUrl }
+                trackId={ song.trackId }
+                songs={ song }
+              />
+            ))}
+          </div>
+
         </div>
+
       </div>
     );
   }
