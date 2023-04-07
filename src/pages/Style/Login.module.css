@@ -8,7 +8,7 @@
 body {
   background-color: #1b1f27;
   color: #cbd0f7;
-  font-family: "Alkatra", cursive;
+  font-family: 'Alkatra', cursive;
 }
 
 .areaLogin {
@@ -44,7 +44,6 @@ body {
   margin-top: 10px;
   outline: none;
   padding-left: 10px;
-  width: 100%;
 }
 
 .form {

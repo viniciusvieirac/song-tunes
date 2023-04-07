@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import imgAudio from '../images/audio-player.svg';
 import style from './Style/Search.module.css';
 
 class Search extends Component {
@@ -72,26 +73,39 @@ class Search extends Component {
       <div data-testid="page-search" className={ style.test }>
         <Header />
         <div className={ style.forms }>
-
           <form onSubmit={ this.handleSubmit }>
-            <label className={ style.labelInput }>
+            <div className={ style.h2 }>
+              <h2>Search your favorite albums</h2>
+            </div>
+            <div className={ style.singleInput }>
               <input
                 value={ artist }
                 type="text"
+                id="artist"
+                required
                 onChange={ this.handleChange }
                 data-testid="search-artist-input"
-                placeholder="Digite o nome do artista"
               />
-            </label>
+              <label htmlFor="artist">Artist name</label>
+            </div>
+
             <button
+              className={ style.button }
               type="submit"
               disabled={ disabledButton }
               data-testid="search-artist-button"
             >
-              Pesquisar
-
+              Search
             </button>
+
           </form>
+          {albuns.length <= 0 && !loading && (
+            <div className={ style.imageContainer }>
+
+              <img src={ imgAudio } alt="audio player" />
+
+            </div>
+          )}
         </div>
         <div className={ style.searchContainer }>
           {loading && <Loading />}
@@ -104,17 +118,12 @@ class Search extends Component {
                   {' '}
                   {artistName}
                 </h2>
-
               </div>
               <div className={ style.albuns }>
                 <ul>
-
                   {albuns.map((album, index) => (
                     <div key={ index } className={ style.cards }>
-
-                      <li
-                        key={ album.collectionName }
-                      >
+                      <li key={ album.collectionName }>
                         <Link
                           to={ `/album/${album.collectionId}` }
                           data-testid={ `link-to-album-${album.collectionId}` }
@@ -132,12 +141,10 @@ class Search extends Component {
                       </li>
                     </div>
                   ))}
-
                 </ul>
               </div>
             </div>
           )}
-
         </div>
       </div>
     );

@@ -13,22 +13,74 @@
 .forms {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding: 50px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.singleInput {
+  margin: 30px 0;
+  position: relative;
+  width: 100%;
+}
+
+.singleInput label {
+  bottom: 5px;
+  color: rgb(150, 150, 150);
+  cursor: text;
+  font-size: 16px;
+  left: 0;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+
+.singleInput input {
+  background-color: #1b1f27;
+  border: 0;
+  border-bottom: 2px solid #cbd0f7;
+  color: #cbd0f7;
+  font-size: 16px;
+  outline: 0;
+  padding: 5px;
+  width: 100%;
+}
+
+.singleInput input:focus, .singleInput input:valid {
+  border-bottom: 2px solid cornflowerblue;
+}
+
+.singleInput input:focus ~ label, .singleInput input:valid ~ label {
+  color: cornflowerblue;
+  font-size: 20px;
+  transform: translateY(-24px);
+}
+
+.button {
+  background-color: #0a0a23;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+  min-height: 30px;
+  min-width: 120px;
+  padding: 15px;
+  text-decoration: none;
+  top: 50%;
+}
+
+.button:hover {
+  background-color: cornflowerblue;
+  transition: 0.7s;
 }
 
 .albunsContainer {
   margin-left: 50px;
+  margin-top: 50px;
   max-width: 750px;
 }
 
-.forms input {
-  border-radius: 15px;
-  height: 25px;
-  margin: 10px;
-  padding-left: 50px;
-  width: 300px;
-}
 
 .albuns ul {
   column-gap: 3rem;
@@ -63,3 +115,11 @@
   margin: 10px;
 }
 
+.h2 {
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.imageContainer img {
+  margin-top: 100px;
+}
