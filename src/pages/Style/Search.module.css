@@ -57,21 +57,23 @@
 }
 
 .button {
-  background-color: #0a0a23;
+  background-color: black;
   border: none;
   border-radius: 10px;
-  color: white;
-  width: 100%;
+  color: #cbd0f7;
   cursor: pointer;
+  font-size: 14px;
   min-height: 30px;
   min-width: 120px;
   padding: 15px;
   text-decoration: none;
   top: 50%;
+  width: 100%;
 }
 
 .button:hover {
-  background-color: cornflowerblue;
+  box-shadow: 6px 8px 8px limegreen;
+  font-size: 16px;
   transition: 0.7s;
 }
 
