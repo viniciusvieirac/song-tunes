@@ -1,0 +1,30 @@
+.mainContainer {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.formProfile {
+  background-color: #38383d;
+  border-radius: 20px;
+  height: 50%;
+  margin-bottom: 200px;
+  margin-left: 200px;
+  width: 30%;
+}
+
+.editContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.editContainer label {
+  margin: 10px;
+}

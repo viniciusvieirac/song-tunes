@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
+import style from './Style/ProfileEdit.module.css';
 
 class ProfileEdit extends Component {
   constructor() {
@@ -64,62 +65,64 @@ class ProfileEdit extends Component {
   render() {
     const { loading, nome, email, description, image, disabledButton } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit" className={ style.mainContainer }>
         <Header />
         {loading ? <Loading /> : (
 
-          <form>
-            <label htmlFor="image">
-              Envie sua imagem:
-              <input
-                type="url"
-                value={ image }
-                name="image"
-                onChange={ this.handleChange }
-                data-testid="edit-input-image"
-              />
-            </label>
-            <label htmlFor="nome">
-              Altere seu nome:
-              <input
-                type="text"
-                value={ nome }
-                name="nome"
-                data-testid="edit-input-name"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <label htmlFor="email">
-              Digite seu email:
-              <input
-                type="email"
-                value={ email }
-                name="email"
-                data-testid="edit-input-email"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <label htmlFor="description">
-              Descrição:
-              <textarea
-                name="description"
-                value={ description }
-                id=""
-                cols="30"
-                rows="10"
-                data-testid="edit-input-description"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <button
-              type="button"
-              data-testid="edit-button-save"
-              disabled={ disabledButton }
-              onClick={ this.handleClick }
-            >
-              Editar perfil
+          <form className={ style.formProfile }>
+            <div className={ style.editContainer }>
+              <label htmlFor="image">
+                Envie sua imagem:
+                <input
+                  type="url"
+                  value={ image }
+                  name="image"
+                  onChange={ this.handleChange }
+                  data-testid="edit-input-image"
+                />
+              </label>
+              <label htmlFor="nome">
+                Altere seu nome:
+                <input
+                  type="text"
+                  value={ nome }
+                  name="nome"
+                  data-testid="edit-input-name"
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <label htmlFor="email">
+                Digite seu email:
+                <input
+                  type="email"
+                  value={ email }
+                  name="email"
+                  data-testid="edit-input-email"
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <label htmlFor="description">
+                Descrição:
+                <textarea
+                  name="description"
+                  value={ description }
+                  id=""
+                  cols="30"
+                  rows="10"
+                  data-testid="edit-input-description"
+                  onChange={ this.handleChange }
+                />
+              </label>
+              <button
+                type="button"
+                data-testid="edit-button-save"
+                disabled={ disabledButton }
+                onClick={ this.handleClick }
+              >
+                Editar perfil
 
-            </button>
+              </button>
+            </div>
           </form>
 
         )}
