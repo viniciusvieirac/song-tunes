@@ -115,11 +115,12 @@ class ProfileEdit extends Component {
               </label>
               <button
                 type="button"
+                className={ style.button }
                 data-testid="edit-button-save"
                 disabled={ disabledButton }
                 onClick={ this.handleClick }
               >
-                Editar perfil
+                Salvar Perfil
 
               </button>
             </div>
