@@ -18,6 +18,7 @@
 .profileContainer img {
   border-radius: 15%;
   margin-top: 15px;
+  width: 30%;
 }
 
 .infos {
