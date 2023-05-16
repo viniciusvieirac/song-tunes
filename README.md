@@ -1,5 +1,7 @@
+**In English** 🇺🇸
+
 # Song Tunes
-🇺🇸
+
 ### About project:
 This is an application that simulates a music streaming service, like Spotify. Being able to search for songs, favorite them, etc.
 ### How to run:
@@ -19,7 +21,8 @@ https://song-tunes.vercel.app/
 ### Developed by:
 - [Vinicius Vieira](https://www.linkedin.com/in/viniciusvieirac/)
 
-🇧🇷 
+**In Portuguese** 🇧🇷 
+# Song Tunes
 
 ### Sobre o projeto:
 Trata-se de um aplicativo que simula um serviço de streaming de música, como o Spotify. Ser capaz de pesquisar músicas, favoritar, etc.
