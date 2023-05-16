@@ -38,7 +38,7 @@ ou visite:
 https://song-tunes.vercel.app/
 
 ### Construído com:
-- [Reagir](https://pt-br.reactjs.org/)
+- [React](https://pt-br.reactjs.org/)
 - [Javascript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 ### Desenvolvido por:
 - [Vinicius Vieira](https://www.linkedin.com/in/viniciusvieirac/)
